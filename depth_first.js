@@ -54,7 +54,7 @@ console.log("============================================");
 all_parents = [];
 
 
-function epanal(parent) {
+function depth_first(parent) {
     
     all_parents.push(parent);
     console.log("List of parents " + all_parents);
@@ -66,11 +66,11 @@ function epanal(parent) {
         if (all_parents.includes(kid)) {
             continue;
         }
-        epanal(kid); 
+        depth_first(kid); 
 
     }
 }
 
-epanal("A");
+depth_first("A");
 
 console.log("The route is: " + all_parents);
