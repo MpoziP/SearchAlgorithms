@@ -41,10 +41,11 @@ for (var i = 0; i < vertices.length; i++) {
 
 g.addEdge('A', 'B');
 g.addEdge('A', 'C');
+g.addEdge('A', 'E');
 g.addEdge('B', 'D');
-g.addEdge('B', 'E');
-g.addEdge('C', 'F');
+g.addEdge('B', 'F');
 g.addEdge('C', 'G');
+g.addEdge('F', 'E');
 
 
 g.printGraph();
