@@ -31,39 +31,44 @@ class Graph {
 
 }
 
-var g = new Graph(6);
-var vertices = [ 'A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K' ];
+var g = new Graph(7);
+var vertices = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ];
 
 // adding vertices
 for (var i = 0; i < vertices.length; i++) {
 	g.addVertex(vertices[i]);
 }
 
-
 g.addEdge('A', 'B');
-g.addEdge('A', 'D');
 g.addEdge('A', 'C');
-g.addEdge('B', 'F');
-g.addEdge('B', 'G');
-g.addEdge('D', 'H');
-g.addEdge('D', 'I');
-g.addEdge('C', 'J');
-g.addEdge('C', 'K');
+g.addEdge('B', 'D');
+g.addEdge('B', 'E');
+g.addEdge('C', 'F');
+g.addEdge('C', 'G');
+
 
 g.printGraph();
+console.log("============================================");
 
-var txt = ["A"];
-function psaxnw(komvos) {
-    for(var k of g.AdjList.get(komvos)) {
-        console.log(k);
-        if (txt.includes(k)) {
-            break;
-        } else {
-            txt.push(k);
-            psaxnw(k);
-        }            
+goneis = [];
+paidia = [];
+
+function epanal(goneas) {
+    //console.log(g.AdjList.get(goneas)); moy dinei ta paidia
+    goneis.push(goneas);
+    console.log(goneis);
+    //paidia.push(paidi);
+    
+    for (var paidi of g.AdjList.get(goneas)) {
+        console.log(paidi);
+
+        if (goneis.includes(paidi)) {
+            console.log("NAI");
+            continue;
+        }
+        epanal(paidi); 
+
     }
 }
 
-psaxnw("A");
-console.log(txt);
+epanal("A");
