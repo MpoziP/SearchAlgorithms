@@ -51,25 +51,26 @@ g.addEdge('F', 'E');
 g.printGraph();
 console.log("============================================");
 
-goneis = [];
-paidia = [];
+all_parents = [];
 
-function epanal(goneas) {
-    //console.log(g.AdjList.get(goneas)); moy dinei ta paidia
-    goneis.push(goneas);
-    console.log(goneis);
-    //paidia.push(paidi);
+
+function epanal(parent) {
     
-    for (var paidi of g.AdjList.get(goneas)) {
-        console.log(paidi);
+    all_parents.push(parent);
+    console.log("List of parents " + all_parents);
+    
+    
+    for (var kid of g.AdjList.get(parent)) {
+        console.log("The current kid is " + kid);
 
-        if (goneis.includes(paidi)) {
-            console.log("NAI");
+        if (all_parents.includes(kid)) {
             continue;
         }
-        epanal(paidi); 
+        epanal(kid); 
 
     }
 }
 
 epanal("A");
+
+console.log("The route is: " + all_parents);
